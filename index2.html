@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors Project - Console based</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            console.log('init test')
+
+            // https://www.w3schools.com/js/js_random.asp
+            function getRndInteger(min, max) {
+                return Math.floor(Math.random() * (max - min) ) + min;
+            }
+
+            function computerPlay() {
+                x = getRndInteger(1,4)
+                if (x == 1) {
+                    return choice = "Rock"
+                }
+                else if (x == 2) {
+                    return choice = "Paper"
+                }
+                else {
+                    return choice = "Scissors"
+                }
+                console.log(choice)
+            }
+
+            function playerChoice() {
+                while (true) {
+                    choice = prompt('Choose').toLowerCase()
+                    if (choice == 'rock' || choice == 'paper' || choice == 'scissors') {
+                        return choice
+                    }
+                    else {
+                        alert('choose rock, paper or scissors')
+                    }
+                }
+            }
+
+            function playRound() {
+                playerSelection = playerChoice()
+                computerSelection = computerPlay().toLowerCase()
+                if (playerSelection == 'rock' && computerSelection == 'paper') {
+                    console.log('You Lose! Paper beats Rock')
+                }
+                else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+                    console.log('You Win! Rock beats Scissors')
+                }
+                else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+                    console.log('You Lose! Scissors beats Paper')
+                }
+                else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                    console.log('You Win! Paper beats Rock')
+                }
+                else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+                    console.log('You Lose! Rock beats Scissors')
+                }
+                else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+                    console.log('You Win! Scissors beats Paper')
+                }
+                else {
+                    console.log("It's a draw")
+                }
+                
+            }
+
+            function game(rounds) {
+                for (i = 0; i < rounds; i++) {
+                    playRound()
+                }
+                // playRound()
+                // playRound()
+                // playRound()
+                // playRound()
+                // playRound()
+            }
+        </script>
+    </body>
+</html>
